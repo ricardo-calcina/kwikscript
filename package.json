@@ -11,7 +11,7 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ricardo-nth/kwikscript.git"
+    "url": "git+https://github.com/ricardo-calcina/kwikscript.git"
   },
   "main": "./electron-dist/main.js",
   "scripts": {
@@ -91,7 +91,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "ricardo-nth",
+        "owner": "ricardo-calcina",
         "repo": "kwikscript"
       }
     ],

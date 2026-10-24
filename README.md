@@ -66,7 +66,7 @@ brew install node@22 ffmpeg
 Clone and build:
 
 ```bash
-git clone https://github.com/ricardo-nth/kwikscript.git
+git clone https://github.com/ricardo-calcina/kwikscript.git
 cd kwikscript
 npm ci
 npm run dist

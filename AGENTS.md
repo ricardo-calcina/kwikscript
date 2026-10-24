@@ -10,7 +10,7 @@ Target: one reliable workflow on an M1 Mac. macOS 14+, Apple Silicon only, singl
 
 ## Git remotes
 
-- `kwikscript` → `github.com/ricardo-nth/kwikscript`, the fork. **Push here.**
+- `kwikscript` → `github.com/ricardo-calcina/kwikscript`, the fork. **Push here.**
 - `origin` → `github.com/wassgha/rescript`, upstream. **Never push to `origin`.** Fetch from it only to pull upstream changes.
 
 ## Stack and layout
