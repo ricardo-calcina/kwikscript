@@ -19,7 +19,7 @@ const description =
   "A local Apple-Silicon transcript editor with Core ML transcription, silence controls, and Final Cut timeline export.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://github.com/ricardo-nth/kwikscript"),
+  metadataBase: new URL("https://github.com/ricardo-calcina/kwikscript"),
   title,
   description,
   openGraph: {
