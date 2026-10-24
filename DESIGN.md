@@ -4,7 +4,7 @@ name: "KwikScript"
 description: "A compact, waveform-led desktop editor for turning spoken media into precise text and timeline cuts."
 colors:
   primary: "#18181b"
-  brand: "#dc2626"
+  brand: "#ff393d"
   background: "#fafafa"
   surface: "#ffffff"
   text: "#18181b"
@@ -55,7 +55,7 @@ KwikScript should feel like a quiet editing console: waveform, transcript, and p
 
 ## Colors
 
-Neutral zinc surfaces carry the interface. A deep signal red belongs to the KwikScript app tile and brand mark; it does not replace neutral product chrome or the established semantic editing colors. Indigo is reserved for selection, red for filler-word cleanup and committed transcript-word cuts, amber/orange for transcript-pause candidates, and cool gray for playable waveform-led quiet-audio candidates. Pattern, strike-through, labels, and marker shape distinguish playable previews from committed edits so color never carries state alone. Dark mode preserves the semantic roles rather than inverting their meaning. Focus and high-contrast behavior must remain visible even when the neutral chrome is quiet.
+Neutral zinc surfaces carry the interface. The app icon uses a coral-red mark on a deep burgundy tile; it does not replace neutral product chrome or the established semantic editing colors. Indigo is reserved for selection, red for filler-word cleanup and committed transcript-word cuts, amber/orange for transcript-pause candidates, and cool gray for playable waveform-led quiet-audio candidates. Pattern, strike-through, labels, and marker shape distinguish playable previews from committed edits so color never carries state alone. Dark mode preserves the semantic roles rather than inverting their meaning. Focus and high-contrast behavior must remain visible even when the neutral chrome is quiet.
 
 ## Typography
 
@@ -89,6 +89,8 @@ The native desktop menu owns project history. The transcript, preview, and timel
 
 ### Forms and overlays
 
+The native app offers **Natural** and **Tight** cleanup pacing in one native segmented picker. Natural is the default for conversational footage: retain gaps below 0.5 s, shorten gaps from 0.5–1.5 s with 120 ms of padding at each side, preserve word-edge breaths and uncertain vocalisations, and remove recognized spoken fillers. Tight retains the previous breath-free behavior. The choice persists on the device; settings apply only when Clean up runs, replacing prior tool-owned cleanup as one undo step while preserving manual edits and saved clip ranges. `KwikScriptKit/CleanupPacing.swift` owns these app presets; KwikCore owns the algorithms and keeps its standalone defaults. The native `Theme.swift` maps the shared palette directly to SwiftUI/AppKit; native pickers own keyboard, focus and accessibility behavior. Clips should contain a self-contained thought with its setup and resolution; duration is an outcome, not the selection rule.
+
 Silence settings and the personal filler-word library live in the cleanup sidebar. Its tab already owns the tool name and count, so the control panel does not repeat a second heading. Explanatory copy lives behind click-accessible info controls, while units remain in a dedicated slot inside the shared numeric-field frame. Native steppers stay available, and the value, spinner, and unit must never overlap at supported precision. Padding starts linked as one symmetric control and can be unlocked for independent left/right adjustment; linking unequal values keeps the larger, speech-safer value. Personal words and consecutive-word phrases are stored on the device and apply to every project. Selecting transcript words exposes Cut, Correct, and Mark as filler in the transcript header; Speaker appears only when multi-speaker detection is enabled. Correction also happens in that header. Popovers are reserved for genuine anchored choices such as speaker assignment and compact contextual help.
 
 ### Media preview
@@ -97,7 +99,9 @@ The original source remains authoritative for transcription and export. When Chr
 
 ### Iconography
 
-Lucide outline icons are canonical at 12–16 px in dense controls. Icons supplement rather than replace labels for non-universal editing operations. The app identity is a flat deep-red tile with a broad, segmented warm-white K: its separated bars echo transcript and timeline cuts while remaining legible at title-bar size.
+Lucide outline icons are canonical at 12–16 px in dense controls. Icons supplement rather than replace labels for non-universal editing operations. The approved D02 app identity is a coral-red K on a deep burgundy rounded-square tile. Four horizontal timeline tracks form seven segments; the two facing rounded ends in the third track are an intentional detail. Preserve this geometry and the transparent outer padding when resizing.
+
+`build/icon.png` is the 1024 px raster master. `build/icon.icns` contains the standard macOS sizes and is explicitly selected by `build.mac.icon` in `package.json`. `assets/logo.png` serves the existing interface logo placements; `app/icon.png` and `app/apple-icon.png` provide the app metadata icons. These are resized copies of the approved artwork, not separate redraws. The brand color above is descriptive; the raster master owns the artwork's exact colors.
 
 ### Motion
 

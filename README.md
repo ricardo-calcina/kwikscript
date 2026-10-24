@@ -6,10 +6,12 @@ editing. It combines transcript-based cuts with the silence controls normally
 found in waveform-first tools, then exports an FCPXML timeline for finishing in
 Final Cut Pro.
 
-This is a power-user project, not a polished commercial product. The current
-priority is one reliable workflow on an M1 Mac: single-speaker English footage,
-local transcription, punchy pause removal, filler-word cleanup, and Final Cut
-handoff.
+This repository is the working Electron fork. Native development continues in
+[KwikScript-native](../KwikScript-native/README.md), using
+[KwikCore](../KwikCore/README.md). See the [Kwik project map](../KwikLog/README.md#kwik-projects).
+Keep the installed Electron app and its bundled transcriber available: KwikLog's
+gym workflow still depends on that helper. A native prototype is not a reason
+to remove or replace the installed app.
 
 ## What this fork adds
 
@@ -97,31 +99,57 @@ npm ci
 npm run electron:dev
 npm run lint
 npm run typecheck:electron
-npx tsc --noEmit
+npx next typegen && npx tsc --noEmit
+npm run test:i18n
+npm run test:timeline
 npm run test:native:alignment
-npm run build:native:coreml
 ```
 
 The native helper is in [`native/coreml-transcriber`](native/coreml-transcriber).
 Its Swift package pins FluidAudio so model behaviour does not drift silently.
 
-## Reproduce the performance test
+## Performance and regression checks
 
-Build the helper once, then point the benchmark at a video or audio file:
+Build and benchmark only when the task requires it; this 8 GB M1 is shared with
+other Swift builds and transcription jobs. Run one heavy job at a time.
 
 ```bash
 npm run build:native:coreml
 npm run benchmark:coreml -- /absolute/path/to/video.mp4
 ```
 
-The script extracts mono 16 kHz audio with the same native FFmpeg path used by
-the app, runs Parakeet v3, and prints timings plus transcript counts. It does not
-retain the extracted audio unless `--keep-temp` is supplied.
+The benchmark uses native FFmpeg to extract mono 16 kHz WAV, then invokes the
+Swift helper. `--keep-temp` retains its extracted audio and JSON; otherwise the
+script removes its own temporary directory. `RESCRIPT_FFMPEG_PATH` can select
+the FFmpeg executable. FluidAudio is pinned to 0.15.6 in the helper package.
 
-The current M1/8 GB baseline and the Electron-to-Swift decision gates are in:
+Historical M1/8 GB measurements are preserved in
+[the performance baseline](docs/archive/PERFORMANCE.md). The September nine-minute
+numbers predate acoustic alignment; they are not a current end-to-end baseline.
+The short `test2.mp4` reference is 309 timed words, five literal `um` tokens, one
+Silero hesitation placeholder, final word at 103.12 s, and no long run of dots.
+Check audible word boundaries as well as counts. Native timing work and current
+measurements belong in [KwikCore's log](../KwikCore/LOG.md).
 
-- [`docs/PERFORMANCE.md`](docs/PERFORMANCE.md)
-- [`docs/SWIFT-MIGRATION.md`](docs/SWIFT-MIGRATION.md)
+## Packaging and release boundaries
+
+`npm run dist` builds the Core ML helper, the desktop static export and Electron
+bundle, then packages Apple-Silicon DMG/ZIP with `--publish never`. Its after-pack
+hook ad-hoc signs the app. Local output does not establish notarization.
+
+The current [release workflow](.github/workflows/release.yml) runs manually or
+on version tags, verifies source and the packaged helper, and uploads unsigned
+DMG/ZIP test artifacts to Actions. It does not publish a GitHub Release. Public
+click-to-install distribution still requires Developer ID signing and Apple
+notarization work. Windows/Linux configuration remains inherited and is not the
+maintained release path.
+
+Do not use `npm run release` or `npm run cut:*` as a local verification step:
+`release` requests publication, and `cut:*` changes versions, commits, tags and
+pushes. `npm run notes:preview` invokes the AI release-notes generator and needs
+`AI_GATEWAY_API_KEY`; it is not an offline check. The upstream release guide is
+[archived](docs/archive/RELEASING.md), including its credential inventory; its
+multi-platform auto-publish description does not describe this fork's workflow.
 
 ## Editing workflow
 
@@ -138,14 +166,18 @@ The current M1/8 GB baseline and the Electron-to-Swift decision gates are in:
 7. Export FCPXML and reconnect to the original 4K media in Final Cut Pro.
 8. Finish colour, captions, graphics, and delivery in Final Cut.
 
-## Why Electron remains for now
+## Documentation
 
-The expensive speech path is already native Swift/Core ML. On the tested
-9-minute 4K source, transcription is no longer where Electron adds meaningful
-overhead. A full Swift UI rewrite is therefore a measured future option, not an
-assumed optimization. The next useful native boundaries are ingestion, export,
-and only then the editor UI if profiling shows it is responsible for sustained
-memory, heat, playback, or interaction problems.
+[LOG.md](LOG.md) owns this repository's current work, decisions and history.
+[AGENTS.md](AGENTS.md) owns agent rules; [DESIGN.md](DESIGN.md) remains the active
+UI context. Future native app work belongs in [the native log](../KwikScript-native/LOG.md),
+and shared engine work in [the core log](../KwikCore/LOG.md).
+
+[Archived plans](docs/archive/) preserve historical decisions, upstream features,
+measurements and migration proposals. They are reference material, not a second
+maintained roadmap. In particular, their draft status, old fixture-generation
+proposal and source-porting language do not override the clean-room rules in
+AGENTS.md or the current sibling project logs.
 
 ## Upstream and attribution
 

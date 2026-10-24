@@ -112,6 +112,7 @@
     ],
     "asar": true,
     "mac": {
+      "icon": "build/icon.icns",
       "target": [
         {
           "target": "dmg",

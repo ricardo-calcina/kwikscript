@@ -42,13 +42,37 @@ The dev machine is an M1 MacBook Air with limited headroom. Validate with the ch
 
 Run the app locally with `npm run electron:dev`.
 
-## Docs
+## Docs and ownership
 
-- `README.md`: features, caveats, local build steps
-- `DESIGN.md`: design tokens and UI conventions. Follow it for UI changes.
-- `ROADMAP.md`: planned work
-- `docs/PERFORMANCE.md`, `docs/SWIFT-MIGRATION.md`: performance notes and the gates for any Swift rewrite
-- `PLAN.md`, `RELEASING.md`: inherited from upstream Rescript and partly outdated. `PLAN.md` describes the original browser Whisper/ffmpeg.wasm architecture, and `RELEASING.md` points at upstream's GitHub Actions. Check against the current code before relying on them.
+- `README.md`: operation, supported scope, checks, packaging and attribution.
+- `LOG.md`: internal Now / Next / Decisions / Done. Keep active tasks in their
+  owning repository; link sibling logs rather than maintaining duplicate lists.
+- `DESIGN.md`: active design tokens and UI conventions, including existing edits.
+- `docs/archive/`: historical plans, migration notes and benchmarks. Do not treat
+  their status labels or proposed tasks as current instructions.
+- `native/coreml-transcriber/README.md` and `patches/README.md`: component-specific
+  operation and dependency patch context; keep them with the component.
+- [Kwik project map](../KwikLog/README.md#kwik-projects),
+  [native app log](../KwikScript-native/LOG.md), [engine log](../KwikCore/LOG.md).
+
+## Native boundary
+
+The MIT native projects are separate from this licensed Electron fork. Native
+implementation agents must not open or copy this fork's upstream code in `lib/`,
+`components/`, `hooks/`, `electron/`, `workers/` or `app/` as reference. Use written
+behaviour, hand-written fixtures and user-level comparisons. The owned Swift in
+`native/coreml-transcriber/` and docs are allowed reference material. Historical
+plans proposing fixtures generated from TypeScript are superseded.
+
+Keep the installed Electron app/helper working while KwikLog's gym workflow
+uses it. Do not remove it, retire it, or silently repoint consumers to KwikCore
+as part of native migration or documentation work.
+
+Release verification must distinguish local ad-hoc packages, Actions test
+artifacts and a published/notarized release. The current tag/manual workflow
+uploads unsigned test artifacts; the archived upstream release guide is not a
+current publishing runbook. `release`, `cut:*` and `notes:preview` have external
+side effects (publication/push/API use); do not run them as checks.
 
 ## License
 
