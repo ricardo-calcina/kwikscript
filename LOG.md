@@ -9,8 +9,13 @@ editing and rendering work is owned by [KwikCore](../KwikCore/LOG.md).
 [Kwik project map](../KwikLog/README.md#kwik-projects).
 
 Development dependencies and vendor copies were moved to Trash on 2026-10-22.
-Restore them with the README workflow before development; installed app/helper
-and old `dist` installers remain in place.
+Restore them with the README workflow before development; the installed
+app/helper remain in place, and the old `dist` installers are on the SSD
+(`Archive/KwikScript-electron-dist`, 2026-10-27).
+
+Since 2026-10-27 this app gets no new features: it is Rescript-based, so it
+can't be sold. KwikScript-native becomes KwikScript; this stays a parity
+reference.
 
 ## Next
 
@@ -59,6 +64,7 @@ and old `dist` installers remain in place.
 
 ## Done
 
+- 2026-10-27 · Old `dist` installers (dmg + zip of the 2 Sep build) archived to the SSD (`Archive/KwikScript-electron-dist`), checksums matched, Mac copy trashed · SSD ARCHIVED.tsv
 - 2026-10-24 · Shared design contract records native Natural/Tight pacing and complete-thought clips; implementation and validation belong to the native app · DESIGN.md; ../KwikScript-native/LOG.md
 
 - 2026-10-24 · Updated active GitHub references for ricardo-calcina; app identifiers and historical evidence preserved · GitHub username migration
