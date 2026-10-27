@@ -4,9 +4,9 @@
 
 Keep the Electron fork and installed transcriber working for the current local
 editing and KwikLog gym workflow. Native app development is owned by
-[KwikScript-native](../KwikScript-native/LOG.md); shared media, transcription,
-editing and rendering work is owned by [KwikCore](../KwikCore/LOG.md).
-[Kwik project map](../KwikLog/README.md#kwik-projects).
+[KwikScript-native](../N3Studio/LOG.md); shared media, transcription,
+editing and rendering work is owned by [KwikCore](../N3Core/LOG.md).
+[Kwik project map](../N3Library/README.md#n3-projects).
 
 Development dependencies and vendor copies were moved to Trash on 2026-10-22.
 Restore them with the README workflow before development; the installed
@@ -65,18 +65,18 @@ reference.
 ## Done
 
 - 2026-10-27 · Old `dist` installers (dmg + zip of the 2 Sep build) archived to the SSD (`Archive/KwikScript-electron-dist`), checksums matched, Mac copy trashed · SSD ARCHIVED.tsv
-- 2026-10-24 · Shared design contract records native Natural/Tight pacing and complete-thought clips; implementation and validation belong to the native app · DESIGN.md; ../KwikScript-native/LOG.md
+- 2026-10-24 · Shared design contract records native Natural/Tight pacing and complete-thought clips; implementation and validation belong to the native app · DESIGN.md; ../N3Studio/LOG.md
 
 - 2026-10-24 · Updated active GitHub references for ricardo-calcina; app identifiers and historical evidence preserved · GitHub username migration
 
 - 2026-10-22 · grouped whole project with its siblings under Content Creation; preserved project boundaries and existing work · ../README.md
 
 - 2026-10-22 · Trashed node_modules and copied public/vendor; retained old dist installers, authored icons and installed app/helper · README.md; package-lock.json; scripts/copy-assets.mjs
-Historical `NATIVE-PLAN.md` and `docs/PERFORMANCE.md` references below resolve to their originals under `docs/archive/`; the named KwikCore measurements are now at `../KwikCore/docs/archive/PERFORMANCE.md`.
+Historical `NATIVE-PLAN.md` and `docs/PERFORMANCE.md` references below resolve to their originals under `docs/archive/`; the named KwikCore measurements are now at `../N3Core/docs/archive/PERFORMANCE.md`.
 
 - 2026-10-22 · consolidated operations/rules/log, archived historical plans intact and assigned remaining work to owner logs; kept Electron helper dependency and license boundary · README.md, AGENTS.md, docs/archive/
 
-- 2026-10-17 · milestone 1 native app built at `../KwikScript-native` (MIT, no commits yet): opens, transcribes, cleans up, edits by word, plays gaplessly and exports MP4/FCPXML with no Electron; idle 120 MB against this app's ~452 MB on the same 20 min file; waiting on a hands-on run · KwikScript-native LOG.md
+- 2026-10-17 · milestone 1 native app built at `../N3Studio` (MIT, no commits yet): opens, transcribes, cleans up, edits by word, plays gaplessly and exports MP4/FCPXML with no Electron; idle 120 MB against this app's ~452 MB on the same 20 min file; waiting on a hands-on run · KwikScript-native LOG.md
 - 2026-10-16 · KwikCore ahead of plan: edit model, filler/pause/quiet cleanup and FCPXML 1.11 export with source timecode; `kwik cut` takes clip 0018 from 9:28.9 to 8:24.2 (25 fillers, 175 pauses) · KwikCore c88e3ea
 - 2026-10-16 · milestone 0 done in KwikCore (committed locally): `kwik transcribe` output identical to the bundled helper on 3 DJI clips, AVFoundation decode 2.1 s / 30 MB against FFmpeg 0.6 s / 22 MB on 9.5 min 4K · KwikCore LOG.md, docs/PERFORMANCE.md
 - 2026-10-16 · confirmed the opt-in offline proxy (540p copy in the cache, originals for render and FCPXML) · NATIVE-PLAN.md §3

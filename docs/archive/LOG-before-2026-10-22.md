@@ -17,7 +17,7 @@ Finishing KwikScript as a native SwiftUI app, free forever: a Descript replaceme
 
 ## Done
 
-- 2026-10-17 · milestone 1 native app built at `../KwikScript-native` (MIT, no commits yet): opens, transcribes, cleans up, edits by word, plays gaplessly and exports MP4/FCPXML with no Electron; idle 120 MB against this app's ~452 MB on the same 20 min file; waiting on a hands-on run · KwikScript-native LOG.md
+- 2026-10-17 · milestone 1 native app built at `../N3Studio` (MIT, no commits yet): opens, transcribes, cleans up, edits by word, plays gaplessly and exports MP4/FCPXML with no Electron; idle 120 MB against this app's ~452 MB on the same 20 min file; waiting on a hands-on run · KwikScript-native LOG.md
 - 2026-10-16 · KwikCore ahead of plan: edit model, filler/pause/quiet cleanup and FCPXML 1.11 export with source timecode; `kwik cut` takes clip 0018 from 9:28.9 to 8:24.2 (25 fillers, 175 pauses) · KwikCore c88e3ea
 - 2026-10-16 · milestone 0 done in KwikCore (committed locally): `kwik transcribe` output identical to the bundled helper on 3 DJI clips, AVFoundation decode 2.1 s / 30 MB against FFmpeg 0.6 s / 22 MB on 9.5 min 4K · KwikCore LOG.md, docs/PERFORMANCE.md
 - 2026-10-16 · confirmed the opt-in offline proxy (540p copy in the cache, originals for render and FCPXML) · NATIVE-PLAN.md §3
