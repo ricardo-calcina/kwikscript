@@ -7,8 +7,8 @@ found in waveform-first tools, then exports an FCPXML timeline for finishing in
 Final Cut Pro.
 
 This repository is the working Electron fork. Native development continues in
-[KwikScript-native](../N3Studio/README.md), using
-[KwikCore](../N3Core/README.md). See the [Kwik project map](../N3Library/README.md#n3-projects).
+[N3 Studio](../N3/Studio/README.md), using
+[N3 Core](../N3/Core/README.md). See the [N3 overview](../N3/README.md).
 Keep the installed Electron app and its bundled transcriber available: KwikLog's
 gym workflow still depends on that helper. A native prototype is not a reason
 to remove or replace the installed app.
@@ -129,7 +129,7 @@ numbers predate acoustic alignment; they are not a current end-to-end baseline.
 The short `test2.mp4` reference is 309 timed words, five literal `um` tokens, one
 Silero hesitation placeholder, final word at 103.12 s, and no long run of dots.
 Check audible word boundaries as well as counts. Native timing work and current
-measurements belong in [KwikCore's log](../N3Core/LOG.md).
+measurements belong in [the N3 log](../N3/LOG.md).
 
 ## Packaging and release boundaries
 
@@ -170,8 +170,8 @@ multi-platform auto-publish description does not describe this fork's workflow.
 
 [LOG.md](LOG.md) owns this repository's current work, decisions and history.
 [AGENTS.md](AGENTS.md) owns agent rules; [DESIGN.md](DESIGN.md) remains the active
-UI context. Future native app work belongs in [the native log](../N3Studio/LOG.md),
-and shared engine work in [the core log](../N3Core/LOG.md).
+UI context. Future native app work belongs in [the native log](../N3/LOG.md),
+and shared engine work in [the core log](../N3/LOG.md).
 
 [Archived plans](docs/archive/) preserve historical decisions, upstream features,
 measurements and migration proposals. They are reference material, not a second

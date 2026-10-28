@@ -52,8 +52,8 @@ Run the app locally with `npm run electron:dev`.
   their status labels or proposed tasks as current instructions.
 - `native/coreml-transcriber/README.md` and `patches/README.md`: component-specific
   operation and dependency patch context; keep them with the component.
-- [Kwik project map](../N3Library/README.md#n3-projects),
-  [native app log](../N3Studio/LOG.md), [engine log](../N3Core/LOG.md).
+- [N3 overview](../N3/README.md),
+  [N3 log](../N3/LOG.md).
 
 ## Native boundary
 
